@@ -137,7 +137,7 @@ printf("*\t\tWELCOME\t\t\t*\n"); reset();  green();
             printf("!!!!!..SYSTEM FALIOUR..!!!!!\n",Beep(5000,200)); // for exiting from the system
             reset();
             exit(1);
-        }
+		}
     }
 }
 void main()
