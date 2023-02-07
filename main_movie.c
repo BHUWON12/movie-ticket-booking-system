@@ -1,4 +1,3 @@
-//program to move ticket booking system
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -7,19 +6,26 @@
 #include<conio.h>
 
 struct book
+
 {
+
     char name[25];
 
     char date[20];
 
     int r1,r2,r3,balcony;
+
 }b;
+
 void Book_Ticket(); //for booking tickets
+
 void View_Movie(); // for view now playing movie
+
 void Add_Movie(); //for inserting new movie
+
 void Old_Transactions(); //for viewing old records of booked tickets
-void Delete_Transactions();
-void sbmain(); //for deleting all transactions
+
+void Delete_Transactions(); //for deleting all transactions
 void reset()// for  switching the text color white from any color  
  {
     printf("\033[0m");
@@ -139,19 +145,13 @@ printf("*\t\tWELCOME\t\t\t*\n"); reset();  green();
 		}
     }
 }
-int main()
-{
-    load();
-    login();
-    sbmain();
-}
-void sbmain()
+void main()
 {
    int ch;
-
+   load();
+   login();
     do
     {
-         system("cls");
               red();
         printf("* * * * * * * * * * * * * * * * * * * * *\n");
         printf("*\t");printf("\t\t\t\t*\n");
@@ -270,7 +270,7 @@ red();        printf("file does not found!");reset();
 
        red(); printf("\nNo Movie is available to book right now! Check after few days!!!"); reset();
 
-        sbmain();
+        main();
     }
 
     else
@@ -302,7 +302,7 @@ red();        printf("file does not found!");reset();
     {
         printf("\nThe seats are full! Visit after few days...\n\n");
 
-        sbmain();
+        main();
     }
     else
     goto choose;
@@ -433,7 +433,7 @@ red();        printf("file does not found!");reset();
                     {
                         printf("\nOkay! No problem!!!\n\n");
                         Sleep(2000);
-                        sbmain();
+                        main();
                     }
                     else
                     {
@@ -460,7 +460,7 @@ red();        printf("file does not found!");reset();
                     else if(ch1==0)
                     {
                         printf("\nOkay! No problem!!!\n\n");
-                        sbmain();
+                        main();
                     }
                     else
                     {
@@ -507,7 +507,7 @@ red();        printf("file does not found!");reset();
 
                         printf("\nOkay! No problem!!!\n\n");
 
-                        sbmain();
+                        main();
 
                     }
 
@@ -560,7 +560,7 @@ red();        printf("file does not found!");reset();
 
                         printf("\nOkay! No problem!!!\n\n");
 
-                        sbmain();
+                        main();
 
                     }
 
@@ -713,6 +713,8 @@ void View_Movie()
 
 {
 
+    system("color 30");
+
     char ch;
 
     int a1,a2,a3,a4;
@@ -758,11 +760,11 @@ void View_Movie()
 
             printf("\nTicket pricing:\n1.Row 1 to 4: %d Rs per seat (%d seats available)\n2.Row 5 to 8: %d Rs per seat (%d seats available)\n3.Row 9 to 12: %d Rs per seat (%d seats available)\n4.Balcony: %d Rs per seat (%d seats available)\n",b.r1,a1,b.r2,a2,b.r3,a3,b.balcony,a4);
 
-            Sleep(10);
+            Sleep(2000);
 
             fclose(fp);
 
-            sbmain();
+            main();
 
         }
 
@@ -774,7 +776,7 @@ void View_Movie()
 
             Sleep(2000);
 
-            sbmain();
+            main();
 
         }
 
@@ -786,15 +788,18 @@ void View_Movie()
 void Add_Movie()
 
 {
-    char temp2,password[]="admin@123",p[100],p1[]="_back_",p2[]="_BACK_";
+
+    system("color 30");
+
+    char temp2,password[]="password",p[100],p1[]="_back_",p2[]="_BACK_";
 
     int l,a1=40,a2=40,a3=40,a4=80;
 
     FILE *fp;
 
     struct book b;
-    red();printf("\n\t\t\tNOTE!!!\n");reset();
-    printf("This will delete now playing movie (if available) and will add new movie!!!\nIf you want to go back then type '_back_' or '_BACK_'");
+
+    printf("\n\t\t\tCaution!!!\nThis will delete now playing movie (if available) and will add new movie!!!\nIf you want to go back then type '_back_' or '_BACK_'");
 
     login:
 
@@ -868,7 +873,7 @@ void Add_Movie()
 
                 system("cls");
 
-              green();  printf("\nPassword matched...\n"); reset();
+                printf("\nPassword matched...\n");
 
                 printf("Enter Movie name (Use '_' for spaces):- ");
 
@@ -927,7 +932,7 @@ void Add_Movie()
 
                     Sleep(1000);
 
-                   green(); printf("Movie added successfully...");reset();
+                    printf("Movie added successfully...");
 
                 }
 
@@ -957,7 +962,7 @@ void Add_Movie()
 
                 Sleep(1000);
 
-                sbmain();
+                main();
 
             }
 
@@ -965,7 +970,7 @@ void Add_Movie()
 
             {
 
-              green();  printf("\nInvalid Password!!!"); reset();
+                printf("\nInvalid Password!!!");
 
                 goto login;
 
@@ -980,6 +985,9 @@ void Add_Movie()
 void Old_Transactions()
 
 {
+
+    system("color 30");
+
     char temp2,ch,password[]="admin@123",p[100],p2[100];
 
     int l;
@@ -1099,7 +1107,6 @@ void Old_Transactions()
                 printf("%c",ch);
 
                   printf("===============================================\n\n");
-                  sleep(20);
 
             }
 
@@ -1107,7 +1114,7 @@ void Old_Transactions()
 
             {
 
-               red(); printf("\nInvalid Password!!!");reset();
+                printf("\nInvalid Password!!!");
 
                 goto login;
 
@@ -1128,6 +1135,7 @@ void Delete_Transactions()
 
 {
 
+    system("color 30");
 
     int l;
 
@@ -1221,7 +1229,7 @@ void Delete_Transactions()
 
                 {
 
-                    red();printf("\nDeleting old transactions");reset();
+                    printf("\nDeleting old transactions");
 
                     Sleep(1000);
 
@@ -1241,7 +1249,7 @@ void Delete_Transactions()
 
                     Sleep(2000);
 
-                    sbmain();
+                    main();
 
                 }
 
