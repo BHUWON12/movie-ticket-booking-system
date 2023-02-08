@@ -8,7 +8,6 @@
 struct book
 
 {
-
     char name[25];
 
     char date[20];
