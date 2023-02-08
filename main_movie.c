@@ -25,6 +25,7 @@ void Add_Movie(); //for inserting new movie
 void Old_Transactions(); //for viewing old records of booked tickets
 
 void Delete_Transactions(); //for deleting all transactions
+void sbmain();
 void reset()// for  switching the text color white from any color  
  {
     printf("\033[0m");
@@ -144,11 +145,16 @@ printf("*\t\tWELCOME\t\t\t*\n"); reset();  green();
 		}
     }
 }
-void main()
+int main()
+{
+    load();
+   login();
+   sbmain();
+
+}
+void sbmain()
 {
    int ch;
-   load();
-   login();
     do
     {
               red();
@@ -236,8 +242,6 @@ void Book_Ticket()
 
 {
 
-    system("color 30");
-
     struct book b;
 
     FILE *fp;
@@ -269,7 +273,7 @@ red();        printf("file does not found!");reset();
 
        red(); printf("\nNo Movie is available to book right now! Check after few days!!!"); reset();
 
-        main();
+        sbmain();
     }
 
     else
@@ -301,7 +305,7 @@ red();        printf("file does not found!");reset();
     {
         printf("\nThe seats are full! Visit after few days...\n\n");
 
-        main();
+        sbmain();
     }
     else
     goto choose;
@@ -432,7 +436,7 @@ red();        printf("file does not found!");reset();
                     {
                         printf("\nOkay! No problem!!!\n\n");
                         Sleep(2000);
-                        main();
+                        sbmain();
                     }
                     else
                     {
@@ -459,7 +463,7 @@ red();        printf("file does not found!");reset();
                     else if(ch1==0)
                     {
                         printf("\nOkay! No problem!!!\n\n");
-                        main();
+                        sbmain();
                     }
                     else
                     {
@@ -506,7 +510,7 @@ red();        printf("file does not found!");reset();
 
                         printf("\nOkay! No problem!!!\n\n");
 
-                        main();
+                        sbmain();
 
                     }
 
@@ -559,7 +563,7 @@ red();        printf("file does not found!");reset();
 
                         printf("\nOkay! No problem!!!\n\n");
 
-                        main();
+                        sbmain();
 
                     }
 
@@ -763,7 +767,7 @@ void View_Movie()
 
             fclose(fp);
 
-            main();
+            sbmain();
 
         }
 
@@ -775,7 +779,7 @@ void View_Movie()
 
             Sleep(2000);
 
-            main();
+            sbmain();
 
         }
 
@@ -788,9 +792,8 @@ void Add_Movie()
 
 {
 
-    system("color 30");
 
-    char temp2,password[]="password",p[100],p1[]="_back_",p2[]="_BACK_";
+    char temp2,password[]="admin@123",p[100],p1[]="_back_",p2[]="_BACK_";
 
     int l,a1=40,a2=40,a3=40,a4=80;
 
@@ -961,7 +964,7 @@ void Add_Movie()
 
                 Sleep(1000);
 
-                main();
+                sbmain();
 
             }
 
@@ -984,8 +987,6 @@ void Add_Movie()
 void Old_Transactions()
 
 {
-
-    system("color 30");
 
     char temp2,ch,password[]="admin@123",p[100],p2[100];
 
@@ -1134,7 +1135,6 @@ void Delete_Transactions()
 
 {
 
-    system("color 30");
 
     int l;
 
@@ -1248,7 +1248,7 @@ void Delete_Transactions()
 
                     Sleep(2000);
 
-                    main();
+                    sbmain();
 
                 }
 
